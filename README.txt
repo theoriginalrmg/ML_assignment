@@ -1,4 +1,4 @@
-BITS F464 Machine Learning - Assignment 1: Flat vs. Hierarchical Classification From Scratch
+BITS F464 Machine Learning - Assignment 1: Flat vs Hierarchical Classification From Scratch
 
 Environment
 
@@ -9,7 +9,7 @@ No other third-party libraries are used (standard library: time, types).
 
 Setup
 
-Put Frogs_MFCCs.csv (UCI Anuran Calls (MFCCs)) in the same folder as the .py files
+Put Frogs_MFCCs.csv in the same folder as the .py files
 and run every command from that folder. No absolute paths are used.
 
 Commands
@@ -20,8 +20,8 @@ python part3_random_forest.py      # Part 3: Random Forest (T=50, m=4 per split)
 python part4_hierarchical.py       # Part 4: router + family experts, failure analysis, confusion matrices
 python part5_naive_bayes.py        # Part 5: Gaussian Naive Bayes, comparison with trees, feature correlation
 
-Lines starting with "MATRIX |" are the values for the results matrix; lines starting
-with "SUPP |" (Part 4) fill the supplementary failure-analysis table.
+Lines starting with "MATRIX |" are the values for the results matrix; 
+lines starting with "SUPP |" (Part 4) fill the supplementary failure-analysis table.
 
 Files
 
