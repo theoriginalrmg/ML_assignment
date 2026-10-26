@@ -1,6 +1,8 @@
 import numpy as np
 
-from common import prepare, evaluate_flat, print_matrix_row
+from common import prepare, evaluate_flat, print_matrix_row, pct, accuracy
+from part1_decision_tree import DecisionTree
+from part3_random_forest import RandomForest
 
 
 class GaussianNB:
@@ -52,6 +54,14 @@ def main():
     tr, te, fam = evaluate_flat(nb, d)
     print()
     print_matrix_row("5. Gaussian Naive Bayes", "—", tr, te, fam)
+
+    print("\nComparison with tree-based models (test accuracy):")
+    print(f"  Gaussian NB:    {pct(te)}")
+    for crit in ("gini", "entropy"):
+        tree = DecisionTree(crit).fit(d.Xtr, d.ytr)
+        rf = RandomForest(50, crit, max_features=4).fit(d.Xtr, d.ytr)
+        print(f"  [{crit}] single tree: {pct(accuracy(d.yte, tree.predict(d.Xte)))}   "
+              f"random forest: {pct(accuracy(d.yte, rf.predict(d.Xte)))}")
 
     # Correlation between the 22 MFCCs (training data). NB assumes these are
     # independent within each class; strongly correlated features get their
